@@ -31,6 +31,9 @@ fun isValidClaim(board: List<Set<Int>>, announcements: List<Int>, claim: String)
     if (claim == "bottom") {
       return bottomMatches == 4 && (last in board[2])
     }
+    if (claim == "first") {
+      return overallMatches == 4 && (last in board[0] || last in board[1] || last in board[2])
+    }
   }
   
 }
