@@ -30,4 +30,26 @@ class AppTest {
 
         assertFalse(result)
     }
+
+    @Test
+    fun `claim should be accepted if claimed right after winning for bottom row`() {
+        val result = isValidClaim(
+            listOf(setOf(7, 23, 38, 52, 80), setOf(9, 25, 56, 64, 83), setOf(4, 16, 48, 63, 76)),
+            listOf(90, 4, 46, 63, 89, 16, 76, 48),
+            "bottom"
+        )
+
+        assertTrue(result)
+    }
+
+    @Test
+    fun `claim should be rejected if not claimed right after winning for bottom row`() {
+        val result = isValidClaim(
+            listOf(setOf(7, 23, 38, 52, 80), setOf(9, 25, 56, 64, 83), setOf(4, 16, 48, 63, 76)),
+            listOf(90, 4, 46, 63, 89, 16, 76, 48, 72),
+            "bottom"
+        )
+
+        assertFalse(result)
+    }
 }
