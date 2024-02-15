@@ -23,6 +23,14 @@ fun isValidClaim(board: List<Set<Int>>, announcements: List<Int>, claim: String)
       bottomMatches += 1
       overallMatches += 1
     }
+
+    val last = announcements[announcements.size-1]
+    if (claim == "top") {
+      return topMatches == 4 && (last in board[0])
+    }
+    if (claim == "bottom") {
+      return bottomMatches == 4 && (last in board[2])
+    }
   }
   
 }
