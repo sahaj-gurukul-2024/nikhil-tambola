@@ -1,11 +1,11 @@
 fun main() {
   val board = listOf(setOf(4, 16, 48, 63, 76), setOf(7, 23, 38, 52, 80), setOf(9, 25, 56, 64, 83))
-  val announcements = listOf(90, 4, 46, 63, 89, 16, 76, 78)
+  val announcements = listOf(90, 4, 46, 63, 89, 16, 76, 48)
   val claim = "top"
 
   val result = isValidClaim(board, announcements, claim)
 
-  if (result == true) {
+  if (result) {
     println("Accepted")
   } else {
     println("Rejected")
