@@ -3,7 +3,7 @@ fun main() {
   val announcements = listOf(90, 4, 46, 63, 89, 16, 76, 78)
   val claim = "top"
 
-  result = isValidClaim(board, announcements, claim)
+  val result = isValidClaim(board, announcements, claim)
 
   if (result == true) {
     println("Accepted")
@@ -29,17 +29,18 @@ fun isValidClaim(board: List<Set<Int>>, announcements: List<Int>, claim: String)
       bottomMatches += 1
       overallMatches += 1
     }
-
-    val last = announcements[announcements.size-1]
-    if (claim == "top") {
-      return topMatches == 4 && (last in board[0])
-    }
-    if (claim == "bottom") {
-      return bottomMatches == 4 && (last in board[2])
-    }
-    if (claim == "first") {
-      return overallMatches == 4 && (last in board[0] || last in board[1] || last in board[2])
-    }
   }
+
+  val last = announcements[announcements.size-1]
+  if (claim == "top") {
+    return topMatches == 4 && (last in board[0])
+  }
+  if (claim == "bottom") {
+    return bottomMatches == 4 && (last in board[2])
+  }
+  if (claim == "first") {
+    return overallMatches == 4 && (last in board[0] || last in board[1] || last in board[2])
+  }
+  return false
   
 }
