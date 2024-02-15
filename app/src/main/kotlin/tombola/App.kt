@@ -17,6 +17,10 @@ fun isValidClaim(board: List<Set<Int>>, announcements: List<Int>, claim: String)
     var bottomMatches = 0
     var overallMatches = 0
 
+    if (announcements.size < 5) {
+        return false
+    }
+
     for (i in 0..announcements.size-2) {
         if (announcements[i] in board[0]) {
             topMatches += 1
